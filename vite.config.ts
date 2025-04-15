@@ -18,5 +18,8 @@ export default defineConfig({
       strict: false,
       allow: ['./public', './src']
     }
+  },
+  optimizeDeps: {
+    exclude: ['@cloudflare/workers-types']
   }
 });
