@@ -1,0 +1,17 @@
+name = "imagehub"
+main = "dist/worker.js"
+compatibility_date = "2024-02-22"
+
+[site]
+bucket = "./dist"
+
+[build]
+command = "npm run build"
+watch_dir = "src"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[[rules]]
+type = "ESModule"
+globs = ["**/*.js"]
