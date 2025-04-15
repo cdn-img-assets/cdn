@@ -15,3 +15,6 @@ vars = { ENVIRONMENT = "production" }
 [[rules]]
 type = "ESModule"
 globs = ["**/*.js"]
+
+[build.upload]
+format = "service-worker"
