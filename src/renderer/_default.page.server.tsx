@@ -2,9 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { PageContextServer } from './types';
 import { PageShell } from './PageShell';
-import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr/server';
 
-// Define which pageContext properties to expose to the browser
 export const passToClient = ['pageProps', 'urlPathname'];
 
 export async function render(pageContext: PageContextServer) {
@@ -15,7 +13,7 @@ export async function render(pageContext: PageContextServer) {
     </PageShell>
   );
 
-  return escapeInject`<!DOCTYPE html>
+  return `<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -23,7 +21,7 @@ export async function render(pageContext: PageContextServer) {
         <title>ImageHub</title>
       </head>
       <body>
-        <div id="root">${dangerouslySkipEscape(pageHtml)}</div>
+        <div id="root">${pageHtml}</div>
       </body>
     </html>`;
 }
